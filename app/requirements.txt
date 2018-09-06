@@ -1,0 +1,17 @@
+Flask-Migrate
+celery
+click
+flask
+flask-celery
+flask-cors
+flask-shell-ipython
+flask-sqlalchemy
+gevent
+gunicorn
+gunicorn
+pycryptodome
+pyjwt
+pymysql
+pymysql
+requests
+tenacity
