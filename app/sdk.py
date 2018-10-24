@@ -101,8 +101,6 @@ class CoinViewPay:
             if body[x] is None:
                 del body[x]
         r = http_session.post(self.BASE_URL + '/wallet', json=body)
-        print(r)
-        print(r.content)
         return r.json()
 
     def transfer(self, receiver_id: str, amount: str, asset_id: str, trace_id: str, memo: Optional[str]):
