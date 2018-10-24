@@ -8,10 +8,8 @@ flask-shell-ipython
 flask-sqlalchemy
 gevent
 gunicorn
-gunicorn
 pycryptodome
 pyjwt
-pymysql
 pymysql
 requests
 tenacity
