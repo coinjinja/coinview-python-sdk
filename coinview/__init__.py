@@ -23,6 +23,17 @@ http_session.headers.update({'User-Agent': 'CoinViewPayPython/1.0 %s' % default_
 
 
 Credential = namedtuple('Credential', ['user_id', 'session_id', 'pin', 'pin_token', 'private_key'])
+def _from_backup(text, pin):
+    d = json.loads(str(b64decode(text), 'utf8'))
+    c = Credential(
+        user_id=d['id'],
+        session_id=d['sessionId'],
+        pin=pin,
+        pin_token=d['pinToken'],
+        private_key=d['privateKey'],
+    )
+    return c
+Credential.from_backup = _from_backup
 
 
 def sha256(*contents, encoding='utf-8') -> str:
