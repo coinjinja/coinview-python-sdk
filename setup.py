@@ -140,6 +140,7 @@ setup(
     install_requires=[
         'pycryptodome',
         'pyjwt',
+        'cryptography',  # pyjwt
         'requests',
     ],  # Optional
 
