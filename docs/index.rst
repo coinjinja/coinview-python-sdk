@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to coinview's documentation!
-====================================
+Welcome to CoinView Server(Python) SDK's documentation!
+============================================================
 
 .. toctree::
    :maxdepth: 2
@@ -12,12 +12,12 @@ Welcome to coinview's documentation!
 
 .. module:: coinview
 
-API doc for under coinview package.
+API document for CoinView's Python SDK package.
 
 .. class:: Credential(user_id, session_id, pin, pin_token, private_key)
 
-   An value type with user credential for interacting with payment
-   service
+   The `Credential` class contains all user credentials for initialize the `CoinViewPay`
+   object for interacting with server APIs.
 
    .. code::
 
@@ -29,9 +29,15 @@ API doc for under coinview package.
          private_key='-----BEGIN RSA PRIVATE KEY-----\n...'
       )
 
-   .. method:: Credential.from_backup(text: str, pin: str)
+   .. method:: Credential.from_backup(secret_key: str, pin: str)
 
-      Creates a *Credential* from backup text
+      You can also create the *Credential* from a secret key which you can get from
+      `CoinView <https://https://coinjinja.com/coinview>`_'s wallet's backup function.
+
+      :param secret_key: The secret key
+      :param pin: the 6 digits pin when you create your wallet
+
+      :return: A credential object by which you can initialize the CoinViewPay
 
 .. autoclass:: coinview.CoinViewPay
    :members:

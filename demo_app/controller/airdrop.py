@@ -72,13 +72,8 @@ def get_drop(user_id, token) -> Optional[Airdrop]:
 
 
 def send_token(drop: Airdrop, sup: AirdropSupply):
-    payment = app_airdrop.transfer(
-        receiver_id=drop.user_id,
-        amount=str(sup.per_person),
-        asset_id=sup.asset_id,
-        trace_id=drop.trace_id,
-        memo=None,
-    )
+    payment = app_airdrop.transfer(recipient_id=drop.user_id, amount=str(sup.per_person), asset_id=sup.asset_id,
+                                   trace_id=drop.trace_id, memo=None)
     if not payment or not payment.get('snapshot_id'):
         return
     with db.session.begin():
