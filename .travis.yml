@@ -1,17 +1,19 @@
 language: python
 python:
-  - '3.5'
-secure: "J12BGplJ8mhdPqJ2tK+W8TpoJtGn+SRSLXJD4M76tNdf1XvKEEdDFMKWM58NkKc2phBMicQhgq3BfMsOy7U9QElNGx2Tnkor0hpV9TBziTzr7J/aWvzAoGm5Y1VdOLI+s1TM6ATO/L0J5vcwrxt+ecKo4wwi0zB/yOESmTaENRdeMy0YvVbmpG/t95+9x+hdKxcz9Zi5b2k4NmXeB20AWj7AVFm2ybqmRih/3jcIaGWyLGvPIwFTpV72kiE1henLdgnVg0zzLguod7F5pc1qdVVmULDpCnDAeswSM38Gmt98AVCeGiTZbKWt0+Sp9McxlgG2ZzYLonIVfRzNvNgcnfZScSIzV1PF6PVth8xo60T4OeVZH8fU4lPOLZUVHD+RYfw3fRhSDIYHbwEgv08+v0FUbOu4AvSZR+dDaMeL4X+axB+sRRfmsiXsm4nHfzylv6k7EH2IfhQIeezEGeOB/+iw9T5y6LIBQcYpUKRqzjHboOL4FKPWiER0htOktb7vXmbLRIM7n0/YCjcu9nxImWefSeJkya1kuCe9PfHGUa7vxacT/xroBtRUeazr/ALpXNkFF55ugfY5+M2xnKcOvr5QBELhdPbVlJCCXllucisljxr3BhJIgvmyaxUfT1ytoJyNwoCsxxFso7HH4rfJ5s9rxHM+nLqWeDYTyN3s3AU="
+- '3.5'
 script:
-  - python setup.py install
-  - pip install -Ur docs/requirements.txt
-  - pip install -Ur demo_app/requirements.txt
-  - cd docs && make html
+- python setup.py install
+- pip install -Ur docs/requirements.txt
+- pip install -Ur demo_app/requirements.txt
+- cd docs && make html
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  github-token: "$GITHUB_TOKEN"
   keep-history: true
   local-dir: docs/_build/html
   on:
     branch: master
+env:
+  global:
+    secure: oUrtl+k3o1miznj9nLCR34hpG+cuXa8xTB3sL9zdMe0JlmMBqcQrP3SdUDfFxxzlzpCvl4PVZCrp498/1PUR4st2VykeBvzHGY6tiMfC+OvoaxAja6R+lmxwwtr8UAq327mD43qG7AUlPxgW7/dAMV+UdRnox4D38O6dZx44oGk6bwo95YVVQrMCOt7nTyWfy9vVyDBdYcrfxGFWQ/9fUHoqB3j55Y5n97dxJegvAL2thkb7B6sBuS6e+s+bKb5jKx0btKnoEPk1dvXv07J2wajt0Y9qApXXt9UfriLUsqGiM4Zp0CDQLKrPeYIar+UgIytylMXai7lpribmkvGsz0QV3PbaRHzRJ9OdRaQsu5E7qpvoPnhcx/f7oOCqfoMpEDpJ71oooCbzhSzdyTXcT2XWz+RPhF02I4de6j+3FlWHEBNHrB3921hb9aucLyFzBa6OMxa95G5hAHtOMvrCImyRv4xte8XQL3WaLn41Z9kxiXS6bnqs+VMjSES0WToc0LWwNwlaDTD6NmkxVuhrIwjiP1kQ6o5eafIF4dw0dHtDqSHNPbQC3QpCuN6q5JrKvMFNtZLaRq8jGgJPHvvSSrJ2eXW5fXXX4YXgN7xLQQlVY/vN9PtHHgrlmBP1+CZEBdhKZON2i7VuKbudfCZBsVJbFS4nVj7pQoGxJB23HHk=
