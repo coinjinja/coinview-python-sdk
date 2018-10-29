@@ -10,10 +10,10 @@ and a voting app that using tokens to vote for the speakers in an event.
 
 ### Client & Server API
 
-To run a dApp on CoinView platform, both [client-side API](https://github.com/coinjinja/coinview-js-sdk) 
-handling user interaction and the server-side API dealing with authentication, verification and
-executing token transfers will be needed. The client-side API is written in pure Javascript and can be 
-easily debugged in normal browser environment.
+To run a dApp on CoinView platform, both client-side API ([document](https://github.com/coinjinja/coinview-js-sdk)) 
+handling user interaction and the server-side API ([document](https://coinjinja.github.io/coinview-python-sdk/)) 
+dealing with authentication, verification and executing token transfers will be needed. The client-side API is 
+written in pure Javascript and can be easily debugged in normal browser environment.
 
 ### Installation
 
@@ -39,7 +39,7 @@ Here's a few simple and easy understanding examples of how to connect CoinView S
 Using a dApp developed in just two days, tokens were released exclusive for the event.
 Attendees were able to use them for purchasing goods and voting for their favorite panel speakers.
 
-Here are source code for the [frontend](https://github.com/coinjinja/demo-voting) and 
+Here are source codes for the [frontend](https://github.com/coinjinja/demo-voting) and 
 [server](https://github.com/coinjinja/coinview-python-sdk/blob/master/demo_app/controller/votes.py). 
 
 
@@ -50,7 +50,7 @@ Here are source code for the [frontend](https://github.com/coinjinja/demo-voting
 An airdrop function that can easily distribute tokens. For this event, two types of tokens 
 (for voting and sales) were prepared and distributed.
 
-Here are source code for the [frontend](https://github.com/coinjinja/demo-airdrop) and 
+Here are source codes for the [frontend](https://github.com/coinjinja/demo-airdrop) and 
 [server](https://github.com/coinjinja/coinview-python-sdk/blob/master/demo_app/controller/airdrop.py).
 
 
@@ -62,7 +62,7 @@ Here are source code for the [frontend](https://github.com/coinjinja/demo-airdro
 A simple POS app with QR code scanning that can quickly reconcile sales with tokens. 
 Commission-free and performs settlement in seconds.
 
-Here are source code for the [frontend](https://github.com/coinjinja/demo-cashier) and 
+Here are source codes for the [frontend](https://github.com/coinjinja/demo-cashier) and 
 [server](https://github.com/coinjinja/coinview-python-sdk/blob/master/demo_app/controller/cashier.py).
 
 
