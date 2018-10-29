@@ -16,7 +16,18 @@ API doc for under coinview package.
 
 .. class:: Credential(user_id, session_id, pin, pin_token, private_key)
 
-   Contains user credential for interacting with server API
+   An value type with user credential for interacting with payment
+   service
+
+   .. code::
+
+      credential = Credential(
+         user_id='a76d6864-a758-46e6-8abc-aa5ddf0d3a51',
+         session_id='33057864-864b-44cd-8dda-28ab514117da',
+         pin='123321',
+         pin_token='oYjrk1chVvnZ...',
+         private_key='-----BEGIN RSA PRIVATE KEY-----\n...'
+      )
 
    .. method:: Credential.from_backup(text: str, pin: str)
 
