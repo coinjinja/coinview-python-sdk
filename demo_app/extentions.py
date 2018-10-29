@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from .sdk import CoinViewPay
+from coinview import CoinViewPay
 db = SQLAlchemy(session_options={
     'autocommit': True,
 })

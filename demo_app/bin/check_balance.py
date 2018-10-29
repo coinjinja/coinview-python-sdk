@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from app.factory import create_app
-from app.extentions import app_airdrop
+from ..factory import create_app
+from ..extentions import app_airdrop
 
 app = create_app()
 app.app_context().push()

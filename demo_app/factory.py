@@ -4,7 +4,7 @@ from flask_cors import CORS
 
 from .controller import airdrop, cashier, votes
 from . import extentions
-from .sdk import Credential
+from coinview import Credential
 
 
 def create_app():
