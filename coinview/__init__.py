@@ -103,7 +103,7 @@ class CoinViewPay:
     :param credential: an instance of the `Credential` class
 
 
-    .. code-block:: python
+    .. code::
 
         credential = Credential.from_backup('XXXX...', '123456')
         app = CoinViewPay(credential)
