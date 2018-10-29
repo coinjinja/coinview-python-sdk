@@ -6,6 +6,7 @@ from base64 import b64encode, b64decode
 from collections import namedtuple
 from typing import Optional
 from uuid import uuid4
+from urllib.parse import urlencode
 
 import jwt
 import requests
@@ -97,6 +98,14 @@ def aes_cbc_encrypt(key_bytes: bytes, content: bytes):
     return b64encode(iv + result).decode('ascii')
 
 
+def remove_null_vals(input):
+    return {
+        k: v
+        for k, v in input.items()
+        if v is not None
+    }
+
+
 class CoinViewPay:
     """Initialize the class with credential information of the wallet
 
@@ -116,19 +125,18 @@ class CoinViewPay:
         self.credential = credential
         pass
 
-    def _request(self, method, uri, content=None, content_type=None):
+    def _request(self, method, uri, content=None, content_type=None, queries=None):
         data = json.dumps(content) if content else None
+        encoded_params = urlencode(queries) if queries else ''
+        encoded_url = '{}?{}'.format(uri, encoded_params) if encoded_params else uri
         body = {
             'method': method,
-            'uri': uri,
+            'uri': encoded_url,
             'content': data,
             'content_type': content_type,
             'signature': generate_signature(self.credential, method, uri, data),
         }
-        for x in list(body.keys()):
-            if body[x] is None:
-                del body[x]
-        r = http_session.post(self.BASE_URL + '/wallet', json=body)
+        r = http_session.post(self.BASE_URL + '/wallet', json=remove_null_vals(body))
         return r.json()
 
     def transfer(self, recipient_id: str, amount: str, asset_id: str, trace_id: str, memo: Optional[str]):
@@ -255,9 +263,11 @@ class CoinViewPay:
         """
         return self._request('GET', '/assets/{}'.format(asset_id)).get('data')
 
-    def transactions(self):
+    def transactions(self, limit: int=None, offset: Optional[str]=None):
         """List transactions
 
+        :param limit: no more than the limit amount of transactions will be returned
+        :param offset: only return transactions before the offset (a timestamp, eg `2018-09-11T05:39:25.429083062Z`)
         :return: A JSON array of all transactions happened in the account
 
         .. code::
@@ -277,7 +287,11 @@ class CoinViewPay:
                 ...
             ]
         """
-        return self._request('GET', '/snapshots').get('data')
+        params = {
+            'limit': limit,
+            'offset': offset,
+        }
+        return self._request('GET', '/snapshots', queries=remove_null_vals(params)).get('data')
 
     def user(self, user_id):
         """Get user detail by user's ID
