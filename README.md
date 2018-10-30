@@ -16,7 +16,7 @@ written in pure Javascript and can be easily debugged in normal browser environm
 
 ### Installation
 
-Under `./coinview` running
+Under `.` running
 
     $ python setup.py install
 
