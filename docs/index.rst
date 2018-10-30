@@ -19,6 +19,14 @@ API document for CoinView's Python SDK package.
    The `Credential` class contains all user credentials for initialize the `CoinViewPay`
    object for interacting with server APIs.
 
+   :param user_id: wallet's user id in UUID format
+   :param session_id: amount of token you with to transfer
+   :param pin: the pin setted when creating the wallet.
+   :param pin_token: pin token can be extracted from the backup secret key
+   :param private_key: private key can be extracted from the backup secret key
+
+   :return: A credential object by which you can initialize the CoinViewPay
+
    .. code::
 
       credential = Credential(
