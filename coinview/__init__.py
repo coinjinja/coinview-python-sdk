@@ -144,7 +144,8 @@ class CoinViewPay:
 
         :param recipient_id: recipient user id in UUID format
         :param amount: amount of token you with to transfer
-        :param asset_id: asset id of the token
+        :param asset_id: asset id of the token in UUID format. Use the `transactions <#coinview.CoinViewPay.transactions>`_
+                         or `list_assets <#coinview.CoinViewPay.list_assets>`_ to find the corresponding asset ID
         :param trace_id: a UUID for identifying the transfer
         :param memo: optional note
 
@@ -177,7 +178,8 @@ class CoinViewPay:
 
         :param recipient_id: recipient user id in UUID format
         :param amount: amount of token you with to transfer
-        :param asset_id: asset id of the token
+        :param asset_id: asset id of the token in UUID format. Use the `transactions <#coinview.CoinViewPay.transactions>`_
+                         or `list_assets <#coinview.CoinViewPay.list_assets>`_ to find the corresponding asset ID
         :param trace_id: a UUID for identifying the transfer
 
         :return: A JSON object with recipient, asset and status information. the `status` could be `pending` and `paid`
@@ -244,7 +246,8 @@ class CoinViewPay:
     def get_asset(self, asset_id):
         """Get assets and its basic information by an asset's ID
 
-        :param asset_id: the asset ID in UUID format
+        :param asset_id: asset id of the token in UUID format. Use the `transactions <#coinview.CoinViewPay.transactions>`_
+                         or `list_assets <#coinview.CoinViewPay.list_assets>`_ to find the corresponding asset ID
 
         :return: A JSON object
 
