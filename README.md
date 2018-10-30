@@ -47,7 +47,7 @@ Here are source codes for the [frontend](https://github.com/coinjinja/demo-votin
 An airdrop function that can easily distribute tokens. For this event, two types of tokens
 (for voting and sales) were prepared and distributed.
 
-Here are source codes for the [frontend](https://github.com/coinjinja/demo-airdrop) and
+Here are source codes for the [frontend](https://github.com/coinjinja/demo-airdropper) and
 [server](https://github.com/coinjinja/coinview-python-sdk/blob/master/demo_app/controller/airdrop.py).
 
 ### PoS(Point of Sale) App
