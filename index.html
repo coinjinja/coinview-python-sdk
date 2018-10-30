@@ -228,7 +228,8 @@ object for interacting with server APIs.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>asset_id</strong> – the asset ID in UUID format</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>asset_id</strong> – asset id of the token in UUID format. Use the <a class="reference external" href="#coinview.CoinViewPay.transactions">transactions</a>
+or <a class="reference external" href="#coinview.CoinViewPay.list_assets">list_assets</a> to find the corresponding asset ID</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A JSON object</td>
 </tr>
@@ -325,7 +326,9 @@ object for interacting with server APIs.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>recipient_id</strong> – recipient user id in UUID format</li>
 <li><strong>amount</strong> – amount of token you with to transfer</li>
-<li><strong>asset_id</strong> – asset id of the token</li>
+<li><strong>asset_id</strong> – <p>asset id of the token in UUID format. Use the <a class="reference external" href="#coinview.CoinViewPay.transactions">transactions</a>
+or <a class="reference external" href="#coinview.CoinViewPay.list_assets">list_assets</a> to find the corresponding asset ID</p>
+</li>
 <li><strong>trace_id</strong> – a UUID for identifying the transfer</li>
 <li><strong>memo</strong> – optional note</li>
 </ul>
@@ -390,7 +393,9 @@ object for interacting with server APIs.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>recipient_id</strong> – recipient user id in UUID format</li>
 <li><strong>amount</strong> – amount of token you with to transfer</li>
-<li><strong>asset_id</strong> – asset id of the token</li>
+<li><strong>asset_id</strong> – <p>asset id of the token in UUID format. Use the <a class="reference external" href="#coinview.CoinViewPay.transactions">transactions</a>
+or <a class="reference external" href="#coinview.CoinViewPay.list_assets">list_assets</a> to find the corresponding asset ID</p>
+</li>
 <li><strong>trace_id</strong> – a UUID for identifying the transfer</li>
 </ul>
 </td>
