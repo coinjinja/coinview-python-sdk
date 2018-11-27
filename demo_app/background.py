@@ -43,8 +43,10 @@ def save_payment(user_id, snapshot_id, amount, product):
 
 
 def refresh_votes():
-    snapshots = app_receiver.asset_history(VOTE_CURRENCY_ID)
+    snapshots = app_receiver.asset_history(limit=500)
     for x in snapshots:
+        if x['asset_id'] != VOTE_CURRENCY_ID:
+            continue
         user_id = x['opponent_id']
         snapshot_id = x['snapshot_id']
         memo = x.get('memo')
@@ -54,8 +56,10 @@ def refresh_votes():
 
 
 def refresh_cashier():
-    snapshots = app_receiver.asset_history(CASHIER_CURRENCY_ID)
+    snapshots = app_receiver.transactions(limit=500)
     for x in snapshots:
+        if x['asset_id'] != CASHIER_CURRENCY_ID:
+            continue
         if not x.get('memo'):
             continue
         save_payment(x['opponent_id'], x['snapshot_id'], x['amount'], x['memo'])
