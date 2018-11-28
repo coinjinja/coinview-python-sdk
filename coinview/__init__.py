@@ -134,7 +134,7 @@ class CoinViewPay:
             'uri': encoded_url,
             'content': data,
             'content_type': content_type,
-            'signature': generate_signature(self.credential, method, uri, data),
+            'signature': generate_signature(self.credential, method, encoded_url, data),
         }
         r = http_session.post(self.BASE_URL + '/wallet', json=remove_null_vals(body))
         return r.json()
