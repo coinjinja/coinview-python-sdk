@@ -43,7 +43,7 @@ def save_payment(user_id, snapshot_id, amount, product):
 
 
 def refresh_votes():
-    snapshots = app_receiver.asset_history(limit=500)
+    snapshots = app_receiver.transactions(limit=500)
     for x in snapshots:
         if x['asset_id'] != VOTE_CURRENCY_ID:
             continue
