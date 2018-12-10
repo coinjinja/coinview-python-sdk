@@ -13,6 +13,13 @@ dealing with authentication, verification, and executing token transfers will be
 
 ### Installation
 
+
+#### Using pip (recommended)
+
+    $ pip install -e 'git+https://github.com/coinjinja/coinview-python-sdk@master#egg=coinview'
+
+#### From source
+
 Under `.` running
 
     $ python setup.py install
