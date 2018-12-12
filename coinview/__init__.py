@@ -139,7 +139,7 @@ class CoinViewPay:
         r = http_session.post(self.BASE_URL + '/wallet', json=remove_null_vals(body))
         return r.json()
 
-    def transfer(self, recipient_id: str, amount: str, asset_id: str, trace_id: str, memo: Optional[str]):
+    def transfer(self, recipient_id: str, amount: str, asset_id: str, trace_id: str, memo: str):
         """Make a direct transfer
 
         :param recipient_id: recipient user id in UUID format
