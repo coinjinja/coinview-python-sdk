@@ -68,7 +68,11 @@ def generate_signature(cred: Credential, method: str, uri: str, content: Optiona
     private_key = cred.private_key
     if '--BEGIN RSA' not in private_key:
         private_key = load_der_private_key(b64decode(private_key), None, default_backend())
-    return jwt.encode(payload, private_key, algorithm='RS512').decode('utf-8')
+    encoded = jwt.encode(payload, private_key, algorithm='RS512')
+    if type(encoded) == str:
+        return encoded
+    else:
+        return encoded.decode('utf-8')
 
 
 def encrypt_pin(cred: Credential, iterator: int = None, timestamp: int = None) -> str:
